@@ -70,14 +70,20 @@ function App() {
         <h5>
           count: {count}, total price: {totalPrice},avg: {avg}
         </h5>
-        <TreeButton color="bg-red-400" tree={129} />
-        <TreeButton color="bg-green-400" tree={139} />
-        <TreeButton color="bg-yellow-400" tree={149} />
-        <TreeButton color="bg-fuchsia-400" tree={159} />
-        <TreeButton color="bg-teal-400" tree={179} />
-        <TreeButton color="bg-emerald-400" tree={199} />
-        <TreeButton color="bg-rose-400" tree={219} />
-        <TreeButton color="bg-amber-400" tree={239} />
+        <div className="grid grid-cols-2">
+          <div className="flex flex-col">
+            <TreeButton color="bg-red-400" tree={129} />
+            <TreeButton color="bg-green-400" tree={139} />
+            <TreeButton color="bg-yellow-400" tree={149} />
+            <TreeButton color="bg-fuchsia-400" tree={159} />
+          </div>
+          <div className="flex flex-col">
+            <TreeButton color="bg-teal-400" tree={179} />
+            <TreeButton color="bg-emerald-400" tree={199} />
+            <TreeButton color="bg-rose-400" tree={219} />
+            <TreeButton color="bg-amber-400" tree={239} />
+          </div>
+        </div>
       </div>
     </div>
   );
