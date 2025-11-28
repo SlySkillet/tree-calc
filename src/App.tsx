@@ -1,5 +1,5 @@
 import { TbChristmasTree } from "react-icons/tb";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface TreeButtonProps {
   color: string;
@@ -11,6 +11,17 @@ function App() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [avg, setAvg] = useState(0);
 
+  useEffect(() => {
+    const calcAvg = () => {
+      if (count === 0) {
+        setAvg(0);
+      } else {
+        setAvg(Number((totalPrice / count).toFixed(2)));
+      }
+    };
+    calcAvg();
+  }, [totalPrice, count]);
+
   const TreeButton = ({ color, tree }: TreeButtonProps) => {
     // const [price, setPrice] = useState<number>(0);
     return (
@@ -19,7 +30,7 @@ function App() {
         onClick={() => {
           setCount(count + 1);
           setTotalPrice(totalPrice + tree);
-          setAvg(Number((totalPrice / count).toFixed(2)));
+          // setAvg(Number((totalPrice / count).toFixed(2)));
         }}
       >
         {tree}
