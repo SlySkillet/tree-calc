@@ -38,11 +38,25 @@ function App() {
     );
   };
 
+  const ResetButton = () => {
+    return (
+      <div
+        className={`m-1 w-16 rounded-lg bg-stone-300 p-1 text-center text-stone-700`}
+        onClick={() => {
+          setCount(0);
+          setTotalPrice(0);
+        }}
+      >
+        Reset
+      </div>
+    );
+  };
+
   return (
     <div className="grid h-screen bg-gray-900 text-amber-50">
       {/* top row */}
       <div className="flex gap-4 self-center justify-self-center">
-        <TbChristmasTree className="text-9xl" />
+        <TbChristmasTree className="text-2xl" />
         <div className="text-md self-center font-mono font-extrabold italic">
           <h1>Tree Counter</h1>
         </div>
@@ -50,7 +64,9 @@ function App() {
       {/* main */}
 
       <div className="flex flex-col items-center">
-        <h1 className="text-xl font-extrabold">F78</h1>
+        <h1 className="flex text-xl font-extrabold">
+          F78 <ResetButton />
+        </h1>
         <h5>
           count: {count}, total price: {totalPrice},avg: {avg}
         </h5>
@@ -61,6 +77,7 @@ function App() {
         <TreeButton color="bg-teal-400" tree={179} />
         <TreeButton color="bg-emerald-400" tree={199} />
         <TreeButton color="bg-rose-400" tree={219} />
+        <TreeButton color="bg-amber-400" tree={239} />
       </div>
     </div>
   );
